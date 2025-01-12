@@ -242,6 +242,36 @@ vim.cmd [[
 	:inoremap <F10> <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z") . " : "<CR>
 ]]
 
+-- moving lines in visual mode
+vim.cmd[[
+	" move selected lines up one line
+	xnoremap <S-k>  :m-2<CR>gv=gv
+
+	" move selected lines down one line
+	xnoremap <S-j> :m'>+<CR>gv=gv
+
+	" move current line up one line
+	nnoremap <S-k>  :<C-u>m-2<CR>==
+
+	" move current line down one line
+	nnoremap <S-j> :<C-u>m+<CR>==
+]]
+
+vim.cmd[[
+	" Goto line number
+	nnoremap <space>g :
+
+	" Search for string - f for forward, r for reverse
+	nnoremap <space>f /
+	nnoremap <space>r ?
+
+	" create or open a file using the :e command - renaming it to space+e
+	nnoremap <space>e :e
+
+  " clear the highlighting of the statusline
+  highlight clear StatusLine
+]]
+
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 250
@@ -1145,6 +1175,7 @@ require('lazy').setup({
     end,
   },
 
+  --[[
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -1163,7 +1194,6 @@ require('lazy').setup({
     end,
   },
 
-  --[[
   {
     "catppuccin/nvim",
     name = "catppuccin",
