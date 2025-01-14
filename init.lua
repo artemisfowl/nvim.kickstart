@@ -270,6 +270,9 @@ vim.cmd[[
 
   " clear the highlighting of the statusline
   highlight clear StatusLine
+
+  " Mapping space+q to quit the split/window
+  nnoremap <space>q :q<CR>
 ]]
 
 -- You will likely want to reduce updatetime which affects CursorHold
