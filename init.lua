@@ -1196,12 +1196,37 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  --]]
 
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     init = function()
+      -- setting up the configuration for catppuccin
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = true,
+        term_colors = true,
+        no_italic = false,
+        no_bold = false,
+        no_underline = false,
+        styles = {
+          comments = {},
+          conditionals = {},
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+          -- miscs = {}
+        },
+      })
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
@@ -1209,9 +1234,9 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+
     end,
   },
-  --]]
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -1302,25 +1327,35 @@ require('lazy').setup({
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- { import = 'custom.plugins' },
 }, {
-  ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
+    ui = {
+      -- If you are using a Nerd Font: set icons to an empty table which will use the
+      -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+      icons = vim.g.have_nerd_font and {} or {
+        cmd = '⌘',
+        config = '🛠',
+        debug = "● ",
+        event = " ",
+        ft = '📂',
+        favorite = " ",
+        init = '⚙',
+        import = " ",
+        keys = '🗝',
+        not_loaded = "○",
+        plugin = '🔌',
+        runtime = " ",
+        require = "󰢱 ",
+        source = " ",
+        start = '🚀',
+        task = '📌',
+        lazy = '💤 ',
+        list = {
+          "●",
+          "➜",
+          "★",
+          "‒",
+        },
+      },
     },
-  },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
