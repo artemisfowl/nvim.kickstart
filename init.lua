@@ -1224,7 +1224,7 @@ require('lazy').setup({
           properties = {},
           types = {},
           operators = {},
-          -- miscs = {}
+          miscs = {}
         },
       })
       -- Load the colorscheme here.
@@ -1233,7 +1233,7 @@ require('lazy').setup({
       vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
 
     end,
   },
