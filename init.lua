@@ -138,19 +138,19 @@ vim.cmd [[
 
 -- [remember selection post indentation]
 vim.cmd [[
-	xnoremap < <gv
-	xnoremap > >gv
+  xnoremap < <gv
+  xnoremap > >gv
 ]]
 
 -- [tab completion of commands]
 vim.cmd [[
-	set wildmenu
-	set wildmode=list:longest,full
+  set wildmenu
+  set wildmode=list:longest,full
 ]]
 
 -- settings related to git blame delay
 vim.cmd [[
-	let g:gitblame_delay = 10 " 10 milliseconds
+  let g:gitblame_delay = 10 " 10 milliseconds
 ]]
 
 vim.cmd [[
@@ -161,28 +161,28 @@ vim.cmd [[
 
 -- show branch information in the status line if branch information is present
 vim.cmd [[
-	function! StatuslineGitBranch()
-		let b:gitbranch=""
-		if &modifiable
-			try
-				lcd %:p:h
-			catch
-				return
-			endtry
-			let l:gitrevparse=system("git rev-parse --abbrev-ref HEAD")
-			lcd -
-			if l:gitrevparse!~"fatal: not a git repository"
-				let b:gitbranch="[".substitute(l:gitrevparse, '\n', '', 'g')."]"
-			endif
-		endif
-	endfunction
+  function! StatuslineGitBranch()
+  let b:gitbranch=""
+  if &modifiable
+  try
+  lcd %:p:h
+  catch
+  return
+  endtry
+  let l:gitrevparse=system("git rev-parse --abbrev-ref HEAD")
+  lcd -
+  if l:gitrevparse!~"fatal: not a git repository"
+  let b:gitbranch="[".substitute(l:gitrevparse, '\n', '', 'g')."]"
+  endif
+  endif
+  endfunction
 
-	augroup GetGitBranch
-		autocmd!
-		autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
-	augroup END
+  augroup GetGitBranch
+  autocmd!
+  autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
+  augroup END
 
-	set statusline=\ %f%m%r%h%w\ %{b:gitbranch}\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
+  set statusline=\ %f%m%r%h%w\ %{b:gitbranch}\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
 ]]
 
 -- [[ Basic Autocommands ]]
@@ -190,83 +190,83 @@ vim.cmd [[
 
 -- remove any trailing whitespace in the lines
 vim.cmd [[
-	" Remove any trailing whitespace that is in the file
-	autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+  " Remove any trailing whitespace that is in the file
+  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 ]]
 
 -- Augroups and related settings
 vim.cmd [[
-	" Setting the color column for specific file types
-	augroup any
-		autocmd FileType * set tabstop=2 colorcolumn=200 shiftwidth=2 noexpandtab textwidth=199
-	augroup END
+  " Setting the color column for specific file types
+  augroup any
+  autocmd FileType * set tabstop=2 colorcolumn=200 shiftwidth=2 noexpandtab textwidth=199
+  augroup END
 
-	augroup cc
-		autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-		autocmd FileType c set colorcolumn=80 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=79
-	augroup END
+  augroup cc
+  autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+  autocmd FileType c set colorcolumn=80 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=79
+  augroup END
 
-	augroup cp
-		autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
-		autocmd FileType cpp set colorcolumn=120 tabstop=2 shiftwidth=2 noexpandtab nocursorcolumn textwidth=119
-	augroup END
+  augroup cp
+  autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
+  autocmd FileType cpp set colorcolumn=120 tabstop=2 shiftwidth=2 noexpandtab nocursorcolumn textwidth=119
+  augroup END
 
-	augroup python
-		autocmd BufRead,BufNewFile *.py set filetype=python
-		autocmd FileType python set colorcolumn=120 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=119
-	augroup END
+  augroup python
+  autocmd BufRead,BufNewFile *.py set filetype=python
+  autocmd FileType python set colorcolumn=120 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=119
+  augroup END
 
-	augroup go
-		autocmd BufRead,BufNewFile *.go set filetype=go
-		autocmd FileType go set colorcolumn=80 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=79
-	augroup END
+  augroup go
+  autocmd BufRead,BufNewFile *.go set filetype=go
+  autocmd FileType go set colorcolumn=80 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=79
+  augroup END
 
-	augroup ruby
-		autocmd BufRead,BufNewFile *.rb set filetype=ruby
-		autocmd FileType ruby set colorcolumn=80 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=79
-	augroup END
+  augroup ruby
+  autocmd BufRead,BufNewFile *.rb set filetype=ruby
+  autocmd FileType ruby set colorcolumn=80 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=79
+  augroup END
 
-	augroup tex
-		autocmd BufRead,BufNewFile *.tex set filetype=tex
-		autocmd FileType tex set colorcolumn=120 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=119
-	augroup END
+  augroup tex
+  autocmd BufRead,BufNewFile *.tex set filetype=tex
+  autocmd FileType tex set colorcolumn=120 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=119
+  augroup END
 
-	augroup lisp
-		autocmd BufRead,BufNewFile *.lisp set filetype=lisp
-		autocmd FileType lisp set colorcolumn=120 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=119
-		"autocmd FileType lisp let b:delimitMate_autoclose = 0
-	augroup END
+  augroup lisp
+  autocmd BufRead,BufNewFile *.lisp set filetype=lisp
+  autocmd FileType lisp set colorcolumn=120 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=119
+  "autocmd FileType lisp let b:delimitMate_autoclose = 0
+  augroup END
 
-	" Adding the time addition shortcut
-	:nnoremap <F10> "=strftime("%a, %d %b %Y %H:%M:%S %z") . " : "<CR>P
-	:inoremap <F10> <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z") . " : "<CR>
+  " Adding the time addition shortcut
+  :nnoremap <F10> "=strftime("%a, %d %b %Y %H:%M:%S %z") . " : "<CR>P
+  :inoremap <F10> <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z") . " : "<CR>
 ]]
 
 -- moving lines in visual mode
 vim.cmd[[
-	" move selected lines up one line
-	xnoremap <S-k>  :m-2<CR>gv=gv
+  " move selected lines up one line
+  xnoremap <S-k>  :m-2<CR>gv=gv
 
-	" move selected lines down one line
-	xnoremap <S-j> :m'>+<CR>gv=gv
+  " move selected lines down one line
+  xnoremap <S-j> :m'>+<CR>gv=gv
 
-	" move current line up one line
-	nnoremap <S-k>  :<C-u>m-2<CR>==
+  " move current line up one line
+  nnoremap <S-k>  :<C-u>m-2<CR>==
 
-	" move current line down one line
-	nnoremap <S-j> :<C-u>m+<CR>==
+  " move current line down one line
+  nnoremap <S-j> :<C-u>m+<CR>==
 ]]
 
 vim.cmd[[
-	" Goto line number
-	nnoremap <space>g :
+  " Goto line number
+  nnoremap <space>g :
 
-	" Search for string - f for forward, r for reverse
-	nnoremap <space>f /
-	nnoremap <space>r ?
+  " Search for string - f for forward, r for reverse
+  nnoremap <space>f /
+  nnoremap <space>r ?
 
-	" create or open a file using the :e command - renaming it to space+e
-	nnoremap <space>e :e
+  " create or open a file using the :e command - renaming it to space+e
+  nnoremap <space>e :e
 
   " clear the highlighting of the statusline
   highlight clear StatusLine
@@ -387,6 +387,62 @@ require('lazy').setup({
         },
       }
     end,
+  },
+
+  {
+    'echasnovski/mini.indentscope',
+    version = false,
+    config = function()
+      require('mini.indentscope').setup()
+    end
+  },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup {
+      options = {
+        icons_enabled = true,
+        theme = 'auto',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+          statusline = {},
+          winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        always_show_tabline = true,
+        globalstatus = false,
+        refresh = {
+          statusline = 100,
+          tabline = 100,
+          winbar = 100,
+        }
+      },
+      sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+      },
+      tabline = {},
+      winbar = {},
+      inactive_winbar = {},
+      extensions = {}
+    }
+    end
   },
 
   -- For commenting lines properly
@@ -1382,7 +1438,7 @@ require('lazy').setup({
         },
       },
     },
-})
+  })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
