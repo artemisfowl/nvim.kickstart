@@ -400,6 +400,8 @@ require('lazy').setup({
     end
   },
 
+  -- For showing a fancy statusline
+  --[[
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -447,6 +449,7 @@ require('lazy').setup({
     }
     end
   },
+  ]]--
 
   -- For commenting lines properly
   {
