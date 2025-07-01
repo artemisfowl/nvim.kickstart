@@ -216,7 +216,7 @@ vim.cmd [[
 
   augroup python
   autocmd BufRead,BufNewFile *.py set filetype=python
-  autocmd FileType python set colorcolumn=120 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=119
+  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup go
@@ -1292,7 +1292,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'catppuccin-frappe'
 
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
