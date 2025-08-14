@@ -228,7 +228,7 @@ vim.cmd [[
 
   augroup python
   autocmd BufRead,BufNewFile *.py set filetype=python
-  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=79
+  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup go
