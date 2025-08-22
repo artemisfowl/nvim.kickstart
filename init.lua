@@ -66,8 +66,8 @@ vim.o.splitbelow = true
 --  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
-vim.o.list = false
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '‿', eol = '↵', extends = '…', precedes = '…', multispace = '￮', lead = ' ', space = '␣' }
+vim.o.list = true
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
@@ -140,7 +140,7 @@ vim.keymap.set('v', 'L', '$')
 vim.keymap.set({ 'n', 't' }, '<F12>', '<cmd>Lspsaga term_toggle<CR>')
 
 -- Hover and show the documentation
-vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
+vim.keymap.set('n', 'M', '<cmd>Lspsaga hover_doc<CR>')
 
 -- Symbols outline
 vim.keymap.set('n', '<F7>', '<cmd>SymbolsOutline<CR>')
@@ -228,7 +228,7 @@ vim.cmd [[
 
   augroup python
   autocmd BufRead,BufNewFile *.py set filetype=python
-  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab nocursorcolumn textwidth=79
+  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup go
@@ -506,7 +506,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        -- pickers = {
+        --   find_files = {
+        --     theme = 'dropdown',
+        --   },
+        -- },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -1156,17 +1160,17 @@ require('lazy').setup({
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
-      -- local statusline = require 'mini.statusline'
+      local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      -- statusline.setup { use_icons = vim.g.have_nerd_font }
+      statusline.setup { use_icons = vim.g.have_nerd_font }
 
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_location = function()
-      -- return '%2l:%-2v'
-      -- end
+      statusline.section_location = function()
+        return '%2l:%-2v'
+      end
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
