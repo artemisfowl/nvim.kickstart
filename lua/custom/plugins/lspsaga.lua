@@ -3,6 +3,14 @@ return {
   'nvimdev/lspsaga.nvim',
   config = function()
     require('lspsaga').setup {
+      outline = {
+        win_position = 'right',
+        win_height = 15,
+        win_width = 60,
+        auto_enter = true,
+        auto_preview = true,
+        close_after_jump = true,
+      },
       show_outline = {
         layout = 'float',
         auto_refresh = true,
