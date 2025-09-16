@@ -147,7 +147,7 @@ vim.keymap.set('n', 'M', '<cmd>Lspsaga hover_doc<CR>')
 vim.keymap.set('n', '<F7>', '<cmd>SymbolsOutline<CR>')
 
 -- Lspsaga outline
-vim.keymap.set('n', '<F8>', '<cmd>SymbolsOutline<CR>')
+vim.keymap.set('n', '<F8>', '<cmd>Lspsaga Outline<CR>')
 
 -- NvimTreeFindFileToggle keymap [old vim style]
 vim.cmd [[
