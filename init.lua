@@ -802,6 +802,8 @@ require('lazy').setup({
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
+              -- Create the directory ~/.local/share/LuaAddons/ in order for saving the addons
+              -- and clone https://github.com/LuaCATS/love2d.git inside the addons directory
               workspace = {
                 userThirdParty = { os.getenv 'HOME' .. '.local/share/LuaAddons' },
                 checkThirdParty = 'Apply',
