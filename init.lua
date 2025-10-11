@@ -67,7 +67,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '‿', eol = '↵', extends = '…', precedes = '…', multispace = '￮', lead = ' ', space = '␣' }
-vim.o.list = true
+vim.o.list = false
 vim.keymap.set('n', '<leader>l', '<cmd>set list!<CR>', { desc = 'Toggle [L]istchars' })
 
 -- Preview substitutions live, as you type!
@@ -147,7 +147,7 @@ vim.keymap.set('n', 'M', '<cmd>Lspsaga hover_doc<CR>')
 vim.keymap.set('n', '<F7>', '<cmd>SymbolsOutline<CR>')
 
 -- Lspsaga outline
-vim.keymap.set('n', '<F8>', '<cmd>Lspsaga Outline<CR>')
+vim.keymap.set('n', '<F8>', '<cmd>Lspsaga outline<CR>')
 
 -- NvimTreeFindFileToggle keymap [old vim style]
 vim.cmd [[
