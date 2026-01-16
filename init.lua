@@ -67,7 +67,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '‿', eol = '↵', extends = '…', precedes = '…', multispace = '￮', lead = ' ', space = '␣' }
-vim.o.list = false
+vim.o.list = true
 vim.keymap.set('n', '<leader>l', '<cmd>set list!<CR>', { desc = 'Toggle [L]istchars' })
 
 -- Preview substitutions live, as you type!
