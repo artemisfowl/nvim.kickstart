@@ -217,42 +217,42 @@ vim.cmd [[
 vim.cmd [[
   " Setting the color column for specific file types
   augroup any
-  autocmd FileType * set tabstop=2 colorcolumn=200 shiftwidth=2 noexpandtab textwidth=199
+  autocmd FileType * set tabstop=2 colorcolumn=200 shiftwidth=2 expandtab textwidth=199
   augroup END
 
   augroup cc
   autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-  autocmd FileType c set colorcolumn=80 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=79
+  autocmd FileType c set colorcolumn=80 tabstop=8 shiftwidth=8 expandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup cp
   autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
-  autocmd FileType cpp set colorcolumn=120 tabstop=2 shiftwidth=2 noexpandtab nocursorcolumn textwidth=119
+  autocmd FileType cpp set colorcolumn=120 tabstop=2 shiftwidth=2 expandtab nocursorcolumn textwidth=119
   augroup END
 
   augroup python
   autocmd BufRead,BufNewFile *.py set filetype=python
-  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=79
+  autocmd FileType python set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup go
   autocmd BufRead,BufNewFile *.go set filetype=go
-  autocmd FileType go set colorcolumn=80 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=79
+  autocmd FileType go set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup ruby
   autocmd BufRead,BufNewFile *.rb set filetype=ruby
-  autocmd FileType ruby set colorcolumn=80 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=79
+  autocmd FileType ruby set colorcolumn=80 tabstop=8 shiftwidth=8 expandtab nocursorcolumn textwidth=79
   augroup END
 
   augroup tex
   autocmd BufRead,BufNewFile *.tex set filetype=tex
-  autocmd FileType tex set colorcolumn=120 tabstop=4 shiftwidth=4 noexpandtab nocursorcolumn textwidth=119
+  autocmd FileType tex set colorcolumn=120 tabstop=4 shiftwidth=4 expandtab nocursorcolumn textwidth=119
   augroup END
 
   augroup lisp
   autocmd BufRead,BufNewFile *.lisp set filetype=lisp
-  autocmd FileType lisp set colorcolumn=120 tabstop=8 shiftwidth=8 noexpandtab nocursorcolumn textwidth=119
+  autocmd FileType lisp set colorcolumn=120 tabstop=8 shiftwidth=8 expandtab nocursorcolumn textwidth=119
   "autocmd FileType lisp let b:delimitMate_autoclose = 0
   augroup END
 
